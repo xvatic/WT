@@ -1,0 +1,212 @@
+body{
+    background-image: url(img/site-bg.jpg);
+    background-size: cover;
+}
+tr{
+    text-align: center;
+}
+
+.wrapper{
+    text-decoration: none;
+   
+    display: grid;
+    grid-template-columns: 50% 30%;
+    grid-auto-rows: minmax(150px,auto);
+    grid-row-gap: 35px;
+    grid-column-gap: 10px;
+    grid-template-areas: 
+    "header header"
+    "sidebar content"
+    "sidebar content"
+    ;
+    justify-content: center;
+    align-content: center;
+ }
+ .wrapper-aircraft{
+    text-decoration: none;
+    display: grid;
+    grid-template-columns: 40% 40%;
+    grid-auto-rows: minmax(150px,auto);
+    grid-row-gap: 35px;
+    grid-column-gap: 10px;
+    grid-template-areas: 
+    "header header"
+    "sidebar content"
+    "sidebar content"
+    ;
+    justify-content: center;
+    align-content: center;
+ }
+ .wrapper-engines{
+    text-decoration: none;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-auto-rows: minmax(150px,auto);
+    grid-row-gap: 35px;
+    grid-column-gap: 10px;
+    grid-template-areas: 
+    "header header header"
+    "ge rr pw"
+    "ge rr pw"
+    ;
+    justify-content: center;
+    align-content: center;
+ }
+ .wrapper-info{
+    text-decoration: none;
+    display: grid;
+    grid-template-columns: 50% 30%;
+    grid-auto-rows: minmax(150px,auto);
+    grid-row-gap: 35px;
+    grid-column-gap: 10px;
+    grid-template-areas: 
+    "header header"
+    "sidebar content"
+    "sidebar content"
+    ;
+    justify-content: center;
+    align-content: center;
+ }
+ .grid-item-header{
+     text-decoration:none;
+     opacity: .5;
+     display: grid;
+     grid-area: header;
+     background-color:cyan;
+     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+     grid-template-areas:
+     "menu menu menu menu menu";
+   
+     
+ }
+ .grid-box1{
+     padding-top:20px ;
+     grid-area: auto;
+     text-align: center;
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: x-large;
+
+ }
+
+
+ .grid-item-stats{
+    
+     text-align: center;
+     opacity: .8;
+     grid-area: sidebar;
+     background-color: burlywood;
+     justify-content: center;
+     
+ }
+ .grid-item-stats img :hover{
+    opacity: 1;
+ }
+ .grid-item-gallery{
+     grid-area: content;
+     text-align: center;
+     background-color: chartreuse;
+     opacity: .8;
+ }
+ a{
+     text-decoration: none;
+ }
+ .grid-item-boeing{
+    text-align: center;
+    opacity: .8;
+    grid-area: sidebar;
+    justify-content: center;
+    background-color:burlywood;
+
+ }
+ .grid-item-airbus{
+    text-align: center;
+    opacity: .8;
+    grid-area: content;
+    justify-content: center;
+    background-color: beige;
+ }
+ .aircraft-info{
+     padding-top: 20px;
+     padding-left: 20px;
+     
+ }
+ .engine-info{
+     padding-top: 20px;
+ }
+ .grid-item-ge{
+     grid-area: ge;
+     text-align: center;
+     background-color: cornflowerblue;
+
+ }
+ .grid-item-rr{
+    grid-area: rr;
+    text-align: center;
+    background-color: darkseagreen;
+     
+}
+.grid-item-pw{
+    grid-area: pw;
+    text-align: center;
+    background-color: maroon;
+     
+}
+.grid-item-me{
+     text-align: center;
+     grid-area: sidebar;
+     background-color: khaki ;
+     justify-content: center;
+}
+.grid-item-follow{
+     grid-area: content;
+     text-align: center;
+     background-color: lightcoral;
+}
+ @media(max-width:1024px){
+     body{
+         background-image: url(img/phone-site-bg.jpg);
+         background-size: cover;
+        }
+    .wrapper{
+        grid-template-columns: 60% 40%;
+        grid-template-areas: 
+        "header header"
+        "sidebar sidebar"
+        "content content"
+        ;
+    }
+    .wrapper-aircraft{
+        grid-template-columns: 50% 50%;
+        grid-template-areas: 
+        "header header"
+        "sidebar sidebar"
+        "content content"
+        ;
+    }
+    .wrapper-engines{
+        grid-template-columns: 33% 33% 33%;
+        grid-template-areas: 
+        "header header header"
+        "ge ge ge"
+        "rr rr rr"
+        "pw pw pw"
+        ;
+    }
+    .wrapper-info{
+        grid-template-columns: 60% 40%;
+        grid-template-areas: 
+        "header header"
+        "sidebar sidebar"
+        "content content"
+        ;
+    }
+    
+    .grid-box1{font-size: medium;}
+     .grid-item-header{
+         background-color: crimson;
+         opacity: .8;
+        }
+     .grid-item-stats{background-color: darkmagenta;}
+     .grid-item-me{background-color: lightgreen;}
+     .grid-item-follow{background-color: lightpink;}
+    }
