@@ -10,16 +10,35 @@
 <body>
     <form action="main.php" method="POST">
         <p><input type="submit" name="checkout" value="Checkout"/></p>
-        <img src="img/challenger650.png" alt="" width="20%" >
-        <p><input type="submit" name="addchallenger" value="Add to cart"/></p>
-        <img src="img/g500.jpg" alt="" width="20%" >
-        <p><input type="submit" name="addg500" value="Add to cart"/></p>
-        <img src="img/g700.jpg" alt="" width="20%" >
-        <p><input type="submit" name="addg700" value="Add to cart"/></p>
-        <img src="img/global6000.png" alt="" width="20%" >
-        <p><input type="submit" name="addglobal" value="Add to cart"/></p>
-        <img src="img/learjet75.png" alt="" width="20%" >
-        <p><input type="submit" name="addlearjet" value="Add to cart"/></p>
+        <?php
+             $user = 'root';
+             $password = 'root';
+             $db = 'plane';
+             $host = 'localhost';
+             $port = 8889;
+             
+             $link = mysqli_init();
+             $success = mysqli_real_connect(
+                $link,
+                $host,
+                $user,
+                $password,
+                $db,
+                $port
+             );
+            $res = mysqli_query($link,"SELECT * FROM shop");
+            while ($row =mysqli_fetch_assoc($res)){
+                
+                echo"<img src='img/".$row['jet'].".png' width=20%>";
+                echo"<img src='img/".$row['jet'].".jpg' width=20%>";
+                echo'Price: '.$row['price'].' kk$';
+                ?>
+                <p><input type="submit" name="<?php echo $row['jet']; ?>" value="Add to cart"/></p>
+                <?php
+            }
+            
+        ?>
+       
     </form>
     <?php
 
@@ -27,35 +46,35 @@
         if (!isset($_SESSION['cart_list'])){
             $_SESSION['cart_list'] = [];
         } 
+        if (!isset($_SESSION['total'])){
+            $_SESSION['total'] = 0;
+        }
+        $arrPost = array();
+        $res = mysqli_query($link,"SELECT * FROM shop");
+        while ($row =mysqli_fetch_assoc($res)){
+                array_push($arrPost, $row['jet']);  
+        }
         
-        if(isset($_POST['addchallenger'])){
-            array_push($_SESSION['cart_list'], 'Challenger 650');
-            Print_list($_SESSION['cart_list']);
+        
+        foreach($arrPost as $val){
+            if(isset($_POST[$val])){
+                array_push($_SESSION['cart_list'], $val);
+                $res = mysqli_query($link,"SELECT * FROM shop WHERE jet ='$val'");
+                while ($row =mysqli_fetch_assoc($res)){
+                        $_SESSION['total']+=$row['price'];
+                }
+                Print_list($_SESSION['cart_list'], $_SESSION['total']);
+            }
         }
-        if(isset($_POST['addg500'])){
-            array_push($_SESSION['cart_list'], 'G 500');
-            Print_list($_SESSION['cart_list']);
-        }
-        if(isset($_POST['addg700'])){
-            array_push($_SESSION['cart_list'], 'G 700');
-            Print_list($_SESSION['cart_list']);
-        }
-        if(isset($_POST['addglobal'])){
-            array_push($_SESSION['cart_list'], 'Global 6000');
-            Print_list($_SESSION['cart_list']);
-        }
-        if(isset($_POST['addlearjet'])){
-            array_push($_SESSION['cart_list'], 'Learjet 75');
-            Print_list($_SESSION['cart_list']);
-
-        }
-       
+      
         if(isset($_POST['checkout'])){
             $_SESSION['cart_list'] = array();
-            Print_list($_SESSION['cart_list']);
+            $_SESSION['total'] = 0;
+            Print_list($_SESSION['cart_list'],$_SESSION['total']);
         }
 
-        function Print_list($list){
+        function Print_list($list,$total){
+            echo('Total price:'.$total.' KK$<br/>');
             echo('items in cart:<br/>');
             $list_u = array_unique($list);
             foreach ($list_u as $item){
