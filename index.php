@@ -9,6 +9,24 @@
 <body>
     <div class="wrapper">
         <div class="grid-item-header">
+
+          <?php include ('navbar.php') ?>
+           
+        </div>
+        <div class="grid-item-main-content">
+
+            
+            <?php include (''.$page.'.php') ?>
+        </div>
+
+        
+       
+         
+        
+    </div>
+</body>
+</html>
+
             <div class="grid-item-header">
             <div class="grid-box1">
                 <a href="aircraft.html">
@@ -55,3 +73,4 @@
     </div>
 </body>
 </html>
+
