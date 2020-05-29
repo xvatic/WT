@@ -1,50 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru">
 
-<head>
-    <title>AIRHYPE</title>
-    <link rel="stylesheet" href="style.css">
-    <meta charset="UTF-8">
-</head>
-<body>
-    <div class="wrapper-aircraft">
-        <div class="grid-item-header">
-            <div class="grid-box1">
-                <a href="aircraft.html">
-                    <span>AIRCRAFT</span>
-                </a>
 
-            </div>
-            <div class="grid-box1">
-                <a href="engines.html">
-                    <span>ENGINES</span>
-                </a>
-                
-            </div>
-            <div class="grid-box1">
-                <a href="contact.html">
-                    <span>
-                         <img src="img/aircraft-logo.png" class="logo" alt="Главная страница" width="75" height="50">
-                    </span>
-                </a>
-                
-                
-            </div>
-            <div class="grid-box1">
-                <a href="index.html">
-                    <span>NEWS</span>
-                </a>
-                
-            </div>
-            <div class="grid-box1">
-                <a href="privatejet.html">
-                    <span>PRIVATE JETS</span>
-                </a>
-                
-            </div>
+    <div class="wrapper-aircraft">  
 
-        </div>
-        
+    
         <div class="grid-item-boeing">
             <caption>
                 <h3>BOMBARDIER (Canada)</h3>
@@ -162,6 +122,6 @@
            
         </div>
         
-    </div>
-</body>
+    </div>  
+
 </html>

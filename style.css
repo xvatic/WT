@@ -8,19 +8,29 @@ tr{
 
 .wrapper{
     text-decoration: none;
-   
-    display: grid;
-    grid-template-columns: 50% 30%;
+    
+    grid-template-columns: 90%;
     grid-auto-rows: minmax(150px,auto);
     grid-row-gap: 35px;
     grid-column-gap: 10px;
     grid-template-areas: 
-    "header header"
-    "sidebar content"
-    "sidebar content"
+    "header"
+    "content"
     ;
     justify-content: center;
     align-content: center;
+ }
+ .wrapper-news{
+     text-decoration: none;
+     display: grid;
+     grid-template-columns: 50% 40%;
+     grid-auto-rows: minmax(150px,auto);
+     grid-column-gap: 10px;
+     grid-template-areas: 
+     "sidebar content"
+     ;
+     justify-content: center;
+
  }
  .wrapper-aircraft{
     text-decoration: none;
@@ -30,7 +40,6 @@ tr{
     grid-row-gap: 35px;
     grid-column-gap: 10px;
     grid-template-areas: 
-    "header header"
     "sidebar content"
     "sidebar content"
     ;
@@ -45,13 +54,13 @@ tr{
     grid-row-gap: 35px;
     grid-column-gap: 10px;
     grid-template-areas: 
-    "header header header"
     "ge rr pw"
     "ge rr pw"
     ;
     justify-content: center;
     align-content: center;
  }
+ 
  .wrapper-info{
     text-decoration: none;
     display: grid;
@@ -86,6 +95,14 @@ tr{
      font-family: Arial, Helvetica, sans-serif;
      font-size: x-large;
 
+ }
+
+ .grid-item-main-content{
+   
+    grid-template-areas:
+     "menu";
+    display: grid;
+    grid-area: content;
  }
 
 
@@ -168,11 +185,10 @@ tr{
          background-size: cover;
         }
     .wrapper{
-        grid-template-columns: 60% 40%;
+        grid-template-columns: 100%;
         grid-template-areas: 
-        "header header"
-        "sidebar sidebar"
-        "content content"
+        "header"
+        "content"
         ;
     }
     .wrapper-aircraft{
@@ -186,7 +202,7 @@ tr{
     .wrapper-engines{
         grid-template-columns: 33% 33% 33%;
         grid-template-areas: 
-        "header header header"
+        
         "ge ge ge"
         "rr rr rr"
         "pw pw pw"
